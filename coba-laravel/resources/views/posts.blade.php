@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>WPU Blog | Posts</title>
-</head>
-<body>
-    <h1>Halaman Posts</h1>
-</body>
-</html>
+@extends('layouts.main')
+
+
+@section('container')
+    @foreach ( $blog as $blogs )
+        <article class="mb-5">
+            <h2>
+                <a href="/blog/{{ $blogs["slug"] }}">{{ $blogs["tittle"] }}</a>
+            </h2>
+            <h5>By : {{ $blogs["author"] }}</h5>
+            <p>{{ $blogs["body"] }}</p>
+        </article>
+    @endforeach
+@endsection
